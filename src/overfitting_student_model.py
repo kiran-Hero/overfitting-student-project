@@ -10,8 +10,6 @@ print("number of students:",len(x))
 print("number of input feautres:",x.shape[1])
 np.random.seed(10)
 indices = np.random.permutation(len(X))
-np.random.seed(10)
-indices = np.random.permutation(len(X))
 train_size = int(0.5 * len(X))
 train_indices = indices[:train_size]
 test_indices = indices[train_size:]
@@ -32,16 +30,10 @@ W2 = np.random.randn(16, 8) * 0.1
 b2 = np.zeros((1, 8))
 W3 = np.random.randn(8, 1) * 0.1
 b3 = np.zeros((1, 1))
-W1 = np.random.randn(4, 16) * 0.1
-W2 = np.random.randn(16, 8) * 0.1
-W3 = np.random.randn(8, 1) * 0.1
 def forward(X):
     z1 = X @ W1 + b1
-    a1 = np.tanh(z1)
     z2 = a1 @ W2 + b2
-    a2 = np.tanh(z2)
     z3 = a2 @ W3 + b3
-    output = sigmoid(z3)
     return a1, a2, output
 def calculate_loss(y_true, y_pred):
     y_pred = np.clip(y_pred, 1e-8, 1 - 1e-8)
