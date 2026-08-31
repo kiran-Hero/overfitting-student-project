@@ -43,12 +43,6 @@ def forward(X):
     z3 = a2 @ W3 + b3
     output = sigmoid(z3)
     return a1, a2, output
-  a1 = np.tanh(z1)
-a2 = np.tanh(z2)
-output = sigmoid(z3)
-_, _, sample_output = forward(X_train)
-print("Sample predictions:")
-print(sample_output[:5])
 def calculate_loss(y_true, y_pred):
     y_pred = np.clip(y_pred, 1e-8, 1 - 1e-8)
     loss = -np.mean(
